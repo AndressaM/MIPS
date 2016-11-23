@@ -1,0 +1,3 @@
+module alu(input logic a,b, output logic aluResult);
+	
+endmodule

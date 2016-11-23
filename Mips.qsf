@@ -50,3 +50,10 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name SYSTEMVERILOG_FILE single_port_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE single_port_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Documentos/MIPS/signExtend.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Documentos/MIPS/register_file.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Documentos/MIPS/alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Documentos/MIPS/adder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Documentos/MIPS/adder8.sv
