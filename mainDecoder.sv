@@ -1,10 +1,11 @@
 module mainDecoder(input logic [5:0]Opcode ,
-							output logic MentoReg,RegDst,IorD,jump,
-							PCSrc, output logic ALUSrc,IRWrite,
-							MenWrite,PCWrite,Branch,RegWrite, 
-							output logic[1:0]ALUOp);
+							output logic MentoReg,RegDst,jump,
+							output logic ALUSrc,MenWrite,PCWrite,Branch,
+							output logic RegWrite, 
+							output logic [1:0]ALUOp);
 			logic out_control[8:0];
 			
+				assign ALUOp = out_control[2:1];
 				assign MentoReg = out_control[3];
 				assign RegDst = out_control[7];
 				assign jump = out_control[0];
@@ -12,7 +13,7 @@ module mainDecoder(input logic [5:0]Opcode ,
 				assign MenWrite = out_control[4];
 				assign Branch = out_control[5];
 				assign RegWrite = out_control[8];
-				assign ALUOp = out_control[2:1];
+				
 			
 			always_comb begin
 				case(Opcode)
@@ -25,10 +26,5 @@ module mainDecoder(input logic [5:0]Opcode ,
 					default : out_control <= 9'bx_xxxx_xxxx;
 				endcase
 			end
-			
-	
-			
-			
-				
 
 endmodule

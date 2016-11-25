@@ -1,2 +1,6 @@
-module mainDecoder();
+module mainDecoder(input logic [5:0]Opcode ,
+							output logic MentoReg,RegDst,jump,,
+							output logic ALUSrc,MenWrite,PCWrite,Branch,
+							output logic RegWrite, 
+							output logic[1:0] ALUOp);
 endmodule
