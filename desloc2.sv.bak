@@ -1,0 +1,5 @@
+module desloc2(input logic a[31:00] ,
+					output logic saida[31:0]);
+
+					assign saida = a<<2;
+endmodule 
