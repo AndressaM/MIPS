@@ -1,30 +1,33 @@
-module mainDecoder(input logic [5:0]Opcode ,
-							output logic MentoReg,RegDst,jump,
-							output logic ALUSrc,MenWrite,PCWrite,Branch,
-							output logic RegWrite, 
-							output logic [1:0]ALUOp);
-			logic out_control[8:0];
+module mainDecoder   (input logic [5:0]opcode ,
+								output logic MentoReg,RegDst,jump,
+								output logic ALUSrc,MenWrite,
+								output logic RegWrite,Branch, 
+								output logic [1:0]aluOp);
 			
-				assign ALUOp = out_control[2:1];
-				assign MentoReg = out_control[3];
-				assign RegDst = out_control[7];
-				assign jump = out_control[0];
-				assign ALUSrc = out_control[6];
-				assign MenWrite = out_control[4];
-				assign Branch = out_control[5];
-				assign RegWrite = out_control[8];
+				logic [8:0] out_control;
+			
+				assign aluOp = out_control [2:1];
+				assign MentoReg = out_control [3];
+				assign RegDst = out_control [7];
+				assign jump = out_control [0];
+				assign ALUSrc = out_control [6];
+				assign MenWrite = out_control [4];
+				assign Branch = out_control [5];
+				assign RegWrite = out_control [8];
 				
 			
-			always_comb begin
-				case(Opcode)
-					6'b000000: out_control <= 9'b110000100;//r-type
-					6'b100011: out_control <= 9'b101001000;//lw
-					6'b101011: out_control <= 9'b001010000;//sw
-					6'b000100: out_control <= 9'b001010000;//beq
-					6'b001000: out_control <= 9'b101000000;//addi
-					6'b000010: out_control <= 9'b000000001;//j
-					default : out_control <= 9'bx_xxxx_xxxx;
+			always_comb
+				
+				case(opcode)
+				
+					6'b000000: out_control <= 9'b110000010;
+					6'b100011: out_control <= 9'b101001000;
+					6'b101011: out_control <= 9'b001010000;
+					6'b000100: out_control <= 9'b001010000;
+					6'b001000: out_control <= 9'b101000000;
+					6'b000010: out_control <= 9'b000000100;
+					default : out_control <=  9'bxxxxxxxxx;
 				endcase
-			end
+				
 
 endmodule

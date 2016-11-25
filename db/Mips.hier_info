@@ -1,29 +1,18 @@
-|main_controler
-opcode[0] => ~NO_FANOUT~
-opcode[1] => ~NO_FANOUT~
-opcode[2] => ~NO_FANOUT~
-opcode[3] => ~NO_FANOUT~
-opcode[4] => ~NO_FANOUT~
-opcode[5] => ~NO_FANOUT~
-MentoReg <= <GND>
-RegDst <= <GND>
-IorD <= <GND>
-PCSrc <= <GND>
-ALUSrcB[0] <= <GND>
-ALUSrcB[1] <= <GND>
-ALUSrcA[0] <= <GND>
-ALUSrcA[1] <= <GND>
-IRWrite[0] <= <GND>
-IRWrite[1] <= <GND>
-MenWrite[0] <= <GND>
-MenWrite[1] <= <GND>
-PCWrite[0] <= <GND>
-PCWrite[1] <= <GND>
-Branch[0] <= <GND>
-Branch[1] <= <GND>
-RegWrite[0] <= <GND>
-RegWrite[1] <= <GND>
-ALUOp[0] <= <GND>
-ALUOp[1] <= <GND>
+|mainDecoder
+opcode[0] => Decoder0.IN5
+opcode[1] => Decoder0.IN4
+opcode[2] => Decoder0.IN3
+opcode[3] => Decoder0.IN2
+opcode[4] => Decoder0.IN1
+opcode[5] => Decoder0.IN0
+MentoReg <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+RegDst <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+jump <= <GND>
+ALUSrc <= out_control.DB_MAX_OUTPUT_PORT_TYPE
+MenWrite <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+RegWrite <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Branch <= <GND>
+aluOp[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+aluOp[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 
 
