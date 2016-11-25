@@ -1,0 +1,17 @@
+module aluDecoder(input logic [5:0]funct , output logic [2:0]AluControl);
+		
+	always_latch
+	begin
+		case (logic)
+			3'b000:	AluControl <= a & b;
+			3'b001:	y <= a | b;
+			3'b010:	y <= a + b;
+			3'b100:	y <= a & ~b;
+			3'b101:	y <= a | ~b;
+			3'b110:	y <= a - b;
+			3'b111:	y <= (a < b) ? 1 : 0;
+		endcase
+end
+		end
+		
+endmodule

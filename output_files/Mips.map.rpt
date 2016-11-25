@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Mips
-Fri Nov 25 14:18:00 2016
+Fri Nov 25 18:19:38 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Nov 25 14:18:00 2016           ;
+; Analysis & Synthesis Status ; Failed - Fri Nov 25 18:19:38 2016           ;
 ; Quartus Prime Version       ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name               ; Mips                                        ;
-; Top-level Entity Name       ; main_controler                              ;
+; Top-level Entity Name       ; mainDecoder                                 ;
 ; Family                      ; Cyclone V                                   ;
 ; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
 ; Total registers             ; N/A until Partition Merge                   ;
@@ -58,7 +58,7 @@ agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; main_controler     ; Mips               ;
+; Top-level entity name                                                           ; mainDecoder        ; Mips               ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -157,7 +157,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Fri Nov 25 14:17:44 2016
+    Info: Processing started: Fri Nov 25 18:19:21 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Mips -c Mips
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
@@ -176,14 +176,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file mux2.sv
     Info (12023): Found entity 1: mux2 File: /home/andressa/Microeletronica/MIPS/mux2.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file desloc2.sv
     Info (12023): Found entity 1: desloc2 File: /home/andressa/Microeletronica/MIPS/desloc2.sv Line: 1
-Error (10170): Verilog HDL syntax error at main_controler.sv(3) near text: "[";  expecting a direction. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Altera Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: /home/andressa/Microeletronica/MIPS/main_controler.sv Line: 3
-Error (10170): Verilog HDL syntax error at main_controler.sv(4) near text: "[";  expecting a direction. Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Altera Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number. File: /home/andressa/Microeletronica/MIPS/main_controler.sv Line: 4
-Error (10112): Ignored design unit "main_controler" at main_controler.sv(1) due to previous errors File: /home/andressa/Microeletronica/MIPS/main_controler.sv Line: 1
-Info (12021): Found 0 design units, including 0 entities, in source file main_controler.sv
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 3 errors, 1 warning
+Info (12021): Found 1 design units, including 1 entities, in source file aluDecoder.sv
+    Info (12023): Found entity 1: aluDecoder File: /home/andressa/Microeletronica/MIPS/aluDecoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mainDecoder.sv
+    Info (12023): Found entity 1: mainDecoder File: /home/andressa/Microeletronica/MIPS/mainDecoder.sv Line: 1
+Info (12127): Elaborating entity "mainDecoder" for the top level hierarchy
+Error (10928): SystemVerilog error at mainDecoder.sv(15): unpacked array type cannot be assigned to packed array type - types do not match File: /home/andressa/Microeletronica/MIPS/mainDecoder.sv Line: 15
+Error (12153): Can't elaborate top-level user hierarchy
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
     Error: Peak virtual memory: 1223 megabytes
-    Error: Processing ended: Fri Nov 25 14:18:00 2016
-    Error: Elapsed time: 00:00:16
-    Error: Total CPU time (on all processors): 00:00:39
+    Error: Processing ended: Fri Nov 25 18:19:38 2016
+    Error: Elapsed time: 00:00:17
+    Error: Total CPU time (on all processors): 00:00:41
 
 
