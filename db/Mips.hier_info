@@ -1,4 +1,32 @@
-|mainDecoder
+|unitControl
+opcode[0] => opcode[0].IN1
+opcode[1] => opcode[1].IN1
+opcode[2] => opcode[2].IN1
+opcode[3] => opcode[3].IN1
+opcode[4] => opcode[4].IN1
+opcode[5] => opcode[5].IN1
+funct[0] => funct[0].IN1
+funct[1] => funct[1].IN1
+funct[2] => funct[2].IN1
+funct[3] => funct[3].IN1
+funct[4] => funct[4].IN1
+funct[5] => funct[5].IN1
+AluOp[0] => ~NO_FANOUT~
+AluOp[1] => ~NO_FANOUT~
+zero => ~NO_FANOUT~
+MentoReg <= mainDecoder:MD.port1
+RegDst <= mainDecoder:MD.port2
+jump <= mainDecoder:MD.port3
+ALUSrc <= mainDecoder:MD.port4
+MenWrite <= mainDecoder:MD.port5
+RegWrite <= mainDecoder:MD.port6
+Branch <= mainDecoder:MD.port7
+AluControl[0] <= aluDecoder:AD.port2
+AluControl[1] <= aluDecoder:AD.port2
+AluControl[2] <= aluDecoder:AD.port2
+
+
+|unitControl|mainDecoder:MD
 opcode[0] => Decoder0.IN5
 opcode[1] => Decoder0.IN4
 opcode[2] => Decoder0.IN3
@@ -14,5 +42,21 @@ RegWrite <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 Branch <= <GND>
 aluOp[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 aluOp[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|unitControl|aluDecoder:AD
+funct[0] => Decoder0.IN5
+funct[1] => Decoder0.IN4
+funct[2] => Decoder0.IN3
+funct[3] => Decoder0.IN2
+funct[4] => Decoder0.IN1
+funct[5] => Decoder0.IN0
+AluOp[0] => Equal0.IN3
+AluOp[0] => Equal1.IN3
+AluOp[1] => Equal0.IN2
+AluOp[1] => Equal1.IN2
+AluControl[0] <= AluControl.DB_MAX_OUTPUT_PORT_TYPE
+AluControl[1] <= AluControl.DB_MAX_OUTPUT_PORT_TYPE
+AluControl[2] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
 
 

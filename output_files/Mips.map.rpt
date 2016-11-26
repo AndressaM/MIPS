@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Mips
-Fri Nov 25 20:47:17 2016
+Fri Nov 25 22:51:34 2016
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -17,6 +17,7 @@ Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
   9. Post-Synthesis Netlist Statistics for Top Partition
  10. Elapsed Time Per Partition
  11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,14 +44,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Nov 25 20:47:17 2016       ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 25 22:51:34 2016       ;
 ; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name                   ; Mips                                        ;
-; Top-level Entity Name           ; mainDecoder                                 ;
+; Top-level Entity Name           ; unitControl                                 ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 0                                           ;
-; Total pins                      ; 15                                          ;
+; Total pins                      ; 25                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -69,7 +70,7 @@ agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; mainDecoder        ; Mips               ;
+; Top-level entity name                                                           ; unitControl        ; Mips               ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
@@ -167,7 +168,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                       ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
+; aluDecoder.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/andressa/Microeletronica/MIPS/aluDecoder.sv  ;         ;
 ; mainDecoder.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/andressa/Microeletronica/MIPS/mainDecoder.sv ;         ;
+; unitControl.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/andressa/Microeletronica/MIPS/unitControl.sv ;         ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------+---------+
 
 
@@ -176,35 +179,37 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------+
 ; Resource                                    ; Usage           ;
 +---------------------------------------------+-----------------+
-; Estimate of Logic utilization (ALMs needed) ; 6               ;
+; Estimate of Logic utilization (ALMs needed) ; 8               ;
 ;                                             ;                 ;
-; Combinational ALUT usage for logic          ; 6               ;
+; Combinational ALUT usage for logic          ; 11              ;
 ;     -- 7 input functions                    ; 0               ;
-;     -- 6 input functions                    ; 5               ;
-;     -- 5 input functions                    ; 1               ;
-;     -- 4 input functions                    ; 0               ;
-;     -- <=3 input functions                  ; 0               ;
+;     -- 6 input functions                    ; 4               ;
+;     -- 5 input functions                    ; 4               ;
+;     -- 4 input functions                    ; 2               ;
+;     -- <=3 input functions                  ; 1               ;
 ;                                             ;                 ;
 ; Dedicated logic registers                   ; 0               ;
 ;                                             ;                 ;
-; I/O pins                                    ; 15              ;
+; I/O pins                                    ; 25              ;
 ;                                             ;                 ;
 ; Total DSP Blocks                            ; 0               ;
 ;                                             ;                 ;
-; Maximum fan-out node                        ; opcode[0]~input ;
-; Maximum fan-out                             ; 6               ;
-; Total fan-out                               ; 57              ;
-; Average fan-out                             ; 1.58            ;
+; Maximum fan-out node                        ; opcode[1]~input ;
+; Maximum fan-out                             ; 7               ;
+; Total fan-out                               ; 88              ;
+; Average fan-out                             ; 1.44            ;
 +---------------------------------------------+-----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                     ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |mainDecoder               ; 6 (6)             ; 0 (0)        ; 0                 ; 0          ; 15   ; 0            ; |mainDecoder        ; mainDecoder ; work         ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                             ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
+; |unitControl               ; 11 (0)            ; 0 (0)        ; 0                 ; 0          ; 25   ; 0            ; |unitControl                ; unitControl ; work         ;
+;    |aluDecoder:AD|         ; 6 (6)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |unitControl|aluDecoder:AD  ; aluDecoder  ; work         ;
+;    |mainDecoder:MD|        ; 5 (5)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |unitControl|mainDecoder:MD ; mainDecoder ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -228,16 +233,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 9                           ;
-;     normal            ; 9                           ;
+; arriav_lcell_comb     ; 14                          ;
+;     normal            ; 14                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         5 data inputs ; 1                           ;
-;         6 data inputs ; 5                           ;
-; boundary_port         ; 15                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 2                           ;
+;         5 data inputs ; 4                           ;
+;         6 data inputs ; 4                           ;
+; boundary_port         ; 25                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.60                        ;
+; Average LUT depth     ; 1.73                        ;
 +-----------------------+-----------------------------+
 
 
@@ -256,7 +263,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
-    Info: Processing started: Fri Nov 25 20:47:02 2016
+    Info: Processing started: Fri Nov 25 22:51:18 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Mips -c Mips
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
@@ -279,21 +286,39 @@ Info (12021): Found 1 design units, including 1 entities, in source file aluDeco
     Info (12023): Found entity 1: aluDecoder File: /home/andressa/Microeletronica/MIPS/aluDecoder.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file mainDecoder.sv
     Info (12023): Found entity 1: mainDecoder File: /home/andressa/Microeletronica/MIPS/mainDecoder.sv Line: 1
-Info (12127): Elaborating entity "mainDecoder" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file ffd.sv
+    Info (12023): Found entity 1: ffd File: /home/andressa/Microeletronica/MIPS/ffd.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file unitControl.sv
+    Info (12023): Found entity 1: unitControl File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 1
+Info (12127): Elaborating entity "unitControl" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at unitControl.sv(12): object "pcsrcAND" assigned a value but never read File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 12
+Info (12128): Elaborating entity "mainDecoder" for hierarchy "mainDecoder:MD" File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 14
+Info (12128): Elaborating entity "aluDecoder" for hierarchy "aluDecoder:AD" File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 15
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "jump" is stuck at GND File: /home/andressa/Microeletronica/MIPS/mainDecoder.sv Line: 2
-    Warning (13410): Pin "Branch" is stuck at GND File: /home/andressa/Microeletronica/MIPS/mainDecoder.sv Line: 4
+    Warning (13410): Pin "jump" is stuck at GND File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 5
+    Warning (13410): Pin "Branch" is stuck at GND File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 7
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 21 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 6 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 1283 megabytes
-    Info: Processing ended: Fri Nov 25 20:47:17 2016
-    Info: Elapsed time: 00:00:15
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "AluOp[0]" File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 3
+    Warning (15610): No output dependent on input pin "AluOp[1]" File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 3
+    Warning (15610): No output dependent on input pin "zero" File: /home/andressa/Microeletronica/MIPS/unitControl.sv Line: 4
+Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 11 logic cells
+Info (144001): Generated suppressed messages file /home/andressa/Microeletronica/MIPS/output_files/Mips.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 1286 megabytes
+    Info: Processing ended: Fri Nov 25 22:51:34 2016
+    Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:39
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/andressa/Microeletronica/MIPS/output_files/Mips.map.smsg.
 
 

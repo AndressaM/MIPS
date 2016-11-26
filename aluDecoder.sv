@@ -1,9 +1,8 @@
 module aluDecoder(input logic [5:0]funct, 
 						input logic [1:0]AluOp , output logic [2:0]AluControl);
 		
-	always_latch
-	begin
-		case (AluOp)
+	always_comb
+			case (AluOp)
 			2'b00 : AluControl <= 3'b010;//add
 			2'b01 : AluControl <= 3'b110;//subtract
 		default: 
@@ -18,7 +17,7 @@ module aluDecoder(input logic [5:0]funct,
 			endcase
 			
 		endcase
-	end
+	
 
 		
 endmodule

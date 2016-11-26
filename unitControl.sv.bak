@@ -1,0 +1,13 @@
+module unitControl(input logic [5:0]opcode,
+                   input logic [5:0]funct, 
+					    input logic [1:0]AluOp,
+						 output logic MentoReg,RegDst,jump,
+						 output logic ALUSrc,MenWrite,
+						 output logic RegWrite,Branch, 
+						 output logic [1:0]aluOp,
+						 output logic [2:0]AluControl);
+						 
+	 mainDecoder MD();
+	 aluDecoder AD();
+
+endmodule
